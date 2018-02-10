@@ -4,6 +4,7 @@ import java.security.NoSuchAlgorithmException;
 
 public final class SHA1 {
     private static final int BUFFER_SIZE = 1024;
+    private static final int EOF = -1;
 
     private static MessageDigest createMessageDigestOfSHA1() throws NoSuchAlgorithmException {
         return MessageDigest.getInstance("SHA1");
@@ -32,8 +33,8 @@ public final class SHA1 {
         MessageDigest mDigest = createMessageDigestOfSHA1();
 
         byte[] buffer = new byte[BUFFER_SIZE];
-        int read_len = -1;
-        while ((read_len = input.read(buffer)) != -1) {
+        int read_len = EOF;
+        while ((read_len = input.read(buffer)) != EOF) {
             mDigest.update(buffer, 0, read_len);
         }
         byte[] result = mDigest.digest();
