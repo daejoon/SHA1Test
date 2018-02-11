@@ -42,6 +42,14 @@ public final class SHA1 {
         return getResultString(result);
     }
 
+    public static String encryptSHA1(File input) throws NoSuchAlgorithmException, IOException {
+        String result = null;
+        try (FileInputStream fileInputStream = new FileInputStream(input)) {
+            result = encryptSHA1(fileInputStream);
+        }
+        return result;
+    }
+
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
         try (FileInputStream inputStream1 = new FileInputStream(new File("./data/test1.txt"));
              FileInputStream inputStream2 = new FileInputStream(new File("./data/test2.txt"))) {
