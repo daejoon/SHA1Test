@@ -51,16 +51,11 @@ public final class SHA1 {
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        try (FileInputStream inputStream1 = new FileInputStream(new File("./data/test1.txt"));
-             FileInputStream inputStream2 = new FileInputStream(new File("./data/test2.txt"))) {
+        String result1 = encryptSHA1(new File("./data/test1.txt"));
+        System.out.println("result1: " + result1);
+        String result2 = encryptSHA1(new File("./data/test2.txt"));
+        System.out.println("result2: " + result2);
 
-            String result1 = encryptSHA1(inputStream1);
-            System.out.println("result1: " + result1);
-            String result2 = encryptSHA1(inputStream2);
-            System.out.println("result2: " + result2);
-
-            System.out.println("Equals: " + result1.equals(result2));
-        } catch (IOException ex) {
-        }
+        System.out.println("Equals: " + result1.equals(result2));
     }
 }
