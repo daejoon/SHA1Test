@@ -8,11 +8,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public final class SHA1 {
+    private static final String ALGORITHM = "SHA1";
     private static final int BUFFER_SIZE = 1024;
     private static final int EOF = -1;
 
     private static MessageDigest createMessageDigestOfSHA1() throws NoSuchAlgorithmException {
-        return MessageDigest.getInstance("SHA1");
+        return MessageDigest.getInstance(ALGORITHM);
     }
 
     private static String getResultString(byte[] result) {
