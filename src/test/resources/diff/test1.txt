@@ -1,10 +1,11 @@
+다른 테스트 데이터 입니다.
+
 import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public final class SHA1 {
     private static final int BUFFER_SIZE = 1024;
-    private static final int EOF = -1;
 
     private static MessageDigest createMessageDigestOfSHA1() throws NoSuchAlgorithmException {
         return MessageDigest.getInstance("SHA1");
@@ -33,8 +34,8 @@ public final class SHA1 {
         MessageDigest mDigest = createMessageDigestOfSHA1();
 
         byte[] buffer = new byte[BUFFER_SIZE];
-        int read_len = EOF;
-        while ((read_len = input.read(buffer)) != EOF) {
+        int read_len = -1;
+        while ((read_len = input.read(buffer)) != -1) {
             mDigest.update(buffer, 0, read_len);
         }
         byte[] result = mDigest.digest();
@@ -42,20 +43,17 @@ public final class SHA1 {
         return getResultString(result);
     }
 
-    public static String encryptSHA1(File input) throws NoSuchAlgorithmException, IOException {
-        String result = null;
-        try (FileInputStream fileInputStream = new FileInputStream(input)) {
-            result = encryptSHA1(fileInputStream);
-        }
-        return result;
-    }
-
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        String result1 = encryptSHA1(new File("./data/test1.txt"));
-        System.out.println("result1: " + result1);
-        String result2 = encryptSHA1(new File("./data/test2.txt"));
-        System.out.println("result2: " + result2);
+        try (FileInputStream inputStream1 = new FileInputStream(new File("./data/test1.txt"));
+             FileInputStream inputStream2 = new FileInputStream(new File("./data/test2.txt"))) {
 
-        System.out.println("Equals: " + result1.equals(result2));
+            String result1 = encryptSHA1(inputStream1);
+            System.out.println("result1: " + result1);
+            String result2 = encryptSHA1(inputStream2);
+            System.out.println("result2: " + result2);
+
+            System.out.println("Equals: " + result1.equals(result2));
+        } catch (IOException ex) {
+        }
     }
 }

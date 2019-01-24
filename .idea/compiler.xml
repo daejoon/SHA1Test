@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="com.ddoong2.initial-sound-search.main" target="1.8" />
+      <module name="com.ddoong2.initial-sound-search.test" target="1.8" />
+      <module name="com.ddoong2.sha1-test.main" target="1.8" />
+      <module name="com.ddoong2.sha1-test.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
