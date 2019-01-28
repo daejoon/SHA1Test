@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SHA1Test {
 
@@ -23,7 +22,7 @@ public class SHA1Test {
             content2 = SHA1.encryptSHA1(test2);
         }
 
-        assertEquals(content1, content2);
+        assertThat(content1).isEqualTo(content2);
     }
 
     @Test
@@ -38,6 +37,6 @@ public class SHA1Test {
             content2 = SHA1.encryptSHA1(test2);
         }
 
-        assertNotEquals(content1, content2);
+        assertThat(content1).isNotEqualTo(content2);
     }
 }
