@@ -1,6 +1,6 @@
 package com.ddoong2;
 
-public class Entry {
+public class App {
 
     public static void main(String[] args) {
     }
