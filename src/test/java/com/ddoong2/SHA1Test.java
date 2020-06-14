@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SHA1Test {
 
     @Test
-    public void test_이름이_다르지만_내용이_같으면_SHA1_결과는_같다() throws IOException, NoSuchAlgorithmException {
+    public void 이름이_다르지만_내용이_같으면_SHA1_결과는_같다() throws IOException, NoSuchAlgorithmException {
         String content1;
         String content2;
 
@@ -26,7 +26,7 @@ public class SHA1Test {
     }
 
     @Test
-    public void test_이름은_같지만_내용이_같다면_SHA1_결과는_다르다() throws IOException, NoSuchAlgorithmException {
+    public void 이름은_같지만_내용이_같다면_SHA1_결과는_다르다() throws IOException, NoSuchAlgorithmException {
         String content1;
         String content2;
 
