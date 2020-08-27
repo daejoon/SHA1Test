@@ -12,12 +12,13 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
-    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
-    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.23.4'
+    implementation 'junit:junit:4.13'
+    testImplementation 'org.assertj:assertj-core:3.17.0'
+    testImplementation 'org.mockito:mockito-core:3.5.5'
 }
 
 application {
